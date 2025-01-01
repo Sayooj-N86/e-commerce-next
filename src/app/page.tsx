@@ -6,6 +6,7 @@ import Categories from './_components/Categories'
 const page = () => {
   return (
     <div className='pt-[6.1rem]'>
+      
       <Kerosal />
       <Categories />
     </div>

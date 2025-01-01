@@ -1,8 +1,8 @@
 "use client"
 import Image from 'next/image'
-import image1 from '@public/image/homepage.jpg'
-import image2 from '@public/image/image2.jpg'
-import image3 from '@public/image/fb.jpg'
+import image1 from '@public/image/home.jpg'
+import image2 from '@public/image/women3.jpg'
+import image3 from '@public/image/men2.jpg'
 import { useState } from 'react'
 import cn from '../utils/tailwind'
 
@@ -65,7 +65,7 @@ const Kerosal = () => {
                 <h3 className='text-black'>{gallery.at(index)!.text.subheading}</h3>
                 <h1 className='text-white text-[3rem] font-bold'>{gallery.at(index)!.text.heading}</h1>
                 <h1 className='text-white text-[1.5rem] font-semibold pb-4'>{gallery.at(index)!.text.description}</h1>
-                <button className='bg-black text-yellow-50 p-4 rounded-3xl font-semibold hover:border '>Shop Now</button>
+                <button className='bg-black text-yellow-50 p-[1.2rem] rounded-3xl font-semibold text-[0.9rem] hover:border  '>Shop Now</button>
             </div>
         </div>
     )
