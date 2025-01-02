@@ -2,9 +2,9 @@ import Image from 'next/image'
 
 const Header = () => {
     return (
-        <div className='flex justify-between py-6 px-24 border-b-2  bg-white fixed z-50 inset-x-0'>
+        <div className='flex justify-between py-6 px-24   bg-gray-100 fixed z-50 inset-x-0 shadow-xl'>
             <div className='font-bold text-[2rem] text-primary'>E-COMMERCE</div>
-            <div className='flex items-center gap-12 text-textsize  text-primary'>
+            <div className='flex items-center gap-12 text-[0.9rem]  text-primary font-semibold'>
                 <div>HOME</div>
                 <div>SHOP</div>
                 <div>CONTACT</div>

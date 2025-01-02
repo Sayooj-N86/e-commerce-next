@@ -1,55 +1,56 @@
 import Image from 'next/image'
 import React from 'react'
-import img1 from '@public/image/products.jpg'
-import img2 from '@public/image/products.jpg'
-import img3 from '@public/image/products.jpg'
-import img4 from '@public/image/products.jpg'
-import img5 from '@public/image/products.jpg'
-import img6 from '@public/image/products.jpg'
+import img1 from '@public/image/mobile.jpg'
+import img2 from '@public/image/earbuds.jpg'
+import img3 from '@public/image/mentshirt.jpg'
+import img4 from '@public/image/womendress.jpg'
+import img5 from '@public/image/shoe.jpg'
+import img6 from '@public/image/watch.jpg'
+import img7 from '@public/image/perfume.jpg'
 import Featured from '@/components/cards/Featured'
 
 const products = [
     {
         img : img1,
-        title: "Product 1",
-        heading: "Graphic Design",
-        price: 300        
+        title: "Smart Phnones",
+        heading: "Staring At Just!!",
+        price: 6999        
     },
     {
         img : img2,
-        title: "Product 2",
-        heading: "Web Development",
-        price:599
+        title: "Head Phones",
+        heading: "Recommended deal for You",
+        price: 399
     },
     {
         img : img3,
-        title: "Product 3",
-        heading: "Digital Marketing",
-        price: 900
+        title: "Men T-shirts",
+        heading: "Flat 25% Off",
+        price: 149
     },
     {
         img : img4,
-        title: "Product 4",
-        heading: "UI/UX Design",
-        price: 200     
+        title: "Women Favourites",
+        heading: "Flat 40% Off on 2 Combos",
+        price: 499     
     },
     {
         img : img5,
-        title: "Product 5",
-        heading: "Data Science",
-        price: 333            
+        title: "Shoes",
+        heading: "Men and Kids starting At",
+        price: 299            
     },
     {
         img : img6,
-        title: "Product 6",
-        heading: "Cyber Security",
-        price:600      
+        title: "Watches",
+        heading: "Flat 20% Discount On woman's watches ",
+        price: 399      
     },
     {
-        img : img6,
-        title: "Product 6",
-        heading: "Cyber Security",
-        price:600      
+        img : img7,
+        title: "Perfumes",
+        heading: "Men Body Sprays",
+        price: 149      
     }
  
 ]
@@ -57,13 +58,13 @@ const products = [
 const Featureproducts = () => {
     return (
         <div>
-            <div className='text-center'>Featured Products</div>
-            <div className='text-center'>product deatails and prices</div>
-            <div className='grid grid-cols-4  gap-3 pb-4 px-10'>
+            <div className='text-center font-bold text-[1.5rem]'>FEATURED PRODUCTS</div>
+            <div className='text-center font-semibold text-[1.2rem] pt-3'>Product Deatails and Prices</div>
+            <div className='grid grid-cols-4  gap-5 pt-3 pb-10 px-10'>
                 {products.map((item,index) => <Featured  key={index} img={item.img} title={item.title} heading={item.heading} price={item.price} />)}
             </div>
         </div>
     )
-}t
+}
 
 export default Featureproducts

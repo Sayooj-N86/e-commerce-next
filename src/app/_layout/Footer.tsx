@@ -4,18 +4,18 @@ import Link from 'next/link'
 const Footer = () => {
     return (
         <div>
-            <div className='flex justify-between px-20 py-16  border-t-2 bg-gray-200'>
-                <div className='text-[1.5rem] font-bold'>E-COMMERCE</div>
+            <div className='flex justify-between px-20 py-10  border-t-2 bg-gray-300'>
+                <div className='text-[1.5rem] font-bold pt-3'>E-COMMERCE</div>
                 <div>
-                    <div className='text-center font-semibold'>Links</div>
-                    <div className='flex gap-8'>
+                    <div className='text-center font-semibold pt-2 text-[1.15rem]'>Links</div>
+                    <div className='flex gap-10 '>
                         <div>Login</div>
                         <div>Contact</div>
                         <div>Shop</div>
                     </div>
                 </div>
                 <div>
-                    <div className='text-center font-semibold'>Get In Touch</div>
+                    <div className='text-center font-semibold text-[1.12rem]'>Get In Touch</div>
                     <div>
                         <div>
                             <p className=''>Address of the building</p>
@@ -34,8 +34,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='text-center py-5'>
-            <h1>Crafted By URBANHUB</h1>
+            <div className='text-center p-6 font-serif font-semibold'>
+            <h1>Crafted By SAYOOJ</h1>
         </div>   
         </div>
     )
