@@ -11,7 +11,7 @@ const Featured = ({ img, title, heading, price }: Props) => {
     <div>
       <div className="bg-white p-3 rounded-md shadow-xl">
         <div className="relative h-[18rem] ">
-          <Image src={img} alt="p1" fill className="object-cover" />
+          <Image src={img} alt="p1" fill className="object-cover hover:scale-105" />
         </div>
         <div className="text-center">
           <h1 className="font-semibold">{title}</h1>
