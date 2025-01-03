@@ -16,7 +16,7 @@ const Sidebar = () => {
           <div onClick={()=>
             setOpen(!open)
           } className="bg-transparent w-[50%]"></div>
-          <div className="bg-black w-[50%]">
+          <div className="bg-blue-300 w-[50%]">
 
           </div>
         </div>
