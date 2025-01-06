@@ -14,9 +14,9 @@ const Featured = ({ img, title, heading, price }: Props) => {
           <Image src={img} alt="p1" fill className="object-cover hover:scale-105" />
         </div>
         <div className="text-center">
-          <h1 className="font-semibold">{title}</h1>
-          <h3>{heading}</h3>
-          <p className="italic font-serif">$ {price}</p>
+          <h1 className="font-semibold text-[0.9rem] lg:text-[1rem]">{title}</h1>
+          <h3 className="text-[0.8rem] lg:text-[1rem]">{heading}</h3>
+          <p className="italic font-serif ">$ {price}</p>
         </div>
       </div>
     </div>

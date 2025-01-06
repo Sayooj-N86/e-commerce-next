@@ -1,5 +1,6 @@
 "use client";
 import Navsvg from "@/components/svg/Navsvg";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Sidebar = () => {
@@ -7,17 +8,19 @@ const Sidebar = () => {
   return (
     <>
       <div className="md:hidden">
-        <Navsvg onClick={() => 
-            setOpen(!open)
-         } />
+        <Navsvg onClick={() => setOpen(!open)} />
       </div>
       {open && (
         <div className="flex fixed inset-0 w-full">
-          <div onClick={()=>
-            setOpen(!open)
-          } className="bg-transparent w-[50%]"></div>
-          <div className="bg-blue-300 w-[50%]">
-
+          <div onClick={() => setOpen(!open)} className="bg-transparent w-[55%]">
+          </div>
+          <div className="bg-blue-400 w-[45%]">
+          <div className='flex flex-col gap-4 py-10 px-4 text-white font-semibold text-[0.8rem]'>
+                    <Link onClick={() => setOpen(!open)} href='/'>Home</Link>
+                    <Link href=''>Shop</Link>
+                    <Link href=''>About</Link>
+                    <Link href=''>Contact</Link>
+                </div>
           </div>
         </div>
       )}

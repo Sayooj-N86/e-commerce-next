@@ -4,6 +4,7 @@ import Categories from './_components/Categories'
 import Featureproducts from './_components/Featureproducts'
 
 
+
 const page = () => {
   return (
     <div className='pt-[6.1rem]'>
