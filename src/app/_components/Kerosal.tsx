@@ -65,7 +65,7 @@ const Kerosal = () => {
                 <h3 className='text-black text-[0.5rem] md:text-[1.5rem]'>{gallery.at(index)!.text.subheading}</h3>
                 <h1 className='text-white text-[0.9rem] md:text-[3rem] font-bold'>{gallery.at(index)!.text.heading}</h1>
                 <h1 className='text-white text-[0.5rem] md:text-[1.5rem] font-semibold pb-[0.01rem] md:pb-4'>{gallery.at(index)!.text.description}</h1>
-                <button className='bg-black text-yellow-50 p-[0.25rem] md:p-[1.2rem]  rounded-3xl font-semibold text-[0.25rem] md:text-[0.9rem] hover:border'>Shop Now</button>
+                <button className='bg-black text-yellow-50 p-[0.25rem] md:p-[1.2rem]  rounded-3xl font-semibold text-[0.20rem] md:text-[0.9rem] hover:border'>Shop Now</button>
             </div>
         </div>  
     )
