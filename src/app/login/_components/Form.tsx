@@ -10,7 +10,7 @@ import { z } from "zod";
 
 const loginSchema = z.object({
     email: z.string().email("*Invalid email").endsWith("com"),
-    password: z.string().regex(/^[A-Z]/,"*start with capital letter").min(8,"*Password required and atleast 8 characters").max(10,"password contains only 10 character"),
+    password: z.string().regex(/^[A-Z]/,"*start with capital letter").min(8,"*Password required and atleast 8 characters").max(10,"*password contains only 10 character"),
 })
 type TloginSchema = z.infer<typeof loginSchema>;
 const Form = () => {
@@ -35,7 +35,7 @@ const Form = () => {
         <h1 className="font-bold text-[1.1rem] md:text-[1.8rem] text-blue-600">
           log in to your account
         </h1>
-        <h2 className="text-black/50 text-[0.7rem] md:text-[1rem] pb-4">
+        <h2 className="text-black/50 text-center text-[0.7rem] md:text-[1rem] pb-4">
           please enter your details!!
         </h2>
         <input
@@ -44,7 +44,7 @@ const Form = () => {
           {...register('email',{required:true})}
           placeholder="Email"
         />
-        {errors.email && <p className="text-red-500 text-[0.7rem]">{errors.email?.message}</p>}
+        {errors.email && <p className="text-red-500 text-[0.8rem]">{errors.email?.message}</p>}
         
         <div className="relative w-full">
           <input
@@ -53,7 +53,7 @@ const Form = () => {
             {...register('password')}
             placeholder="Password"
           />
-          {errors.password && <p className="text-red-500">{errors.password?.message}</p>}
+          {errors.password && <p className="text-red-500 text-[0.8rem]">{errors.password?.message}</p>}
           {touch ? (
             <Openeye
               className="absolute h-3 w-3 md:h-5 md:w-5 top-2 md:top-3 right-3"
@@ -80,7 +80,7 @@ const Form = () => {
             Don't have an Account?
           </h2>
           <Link
-            href=""
+            href="/signup"
             className="text-violet-700 hover:blue-700 font-semibold md:font-bold text-[0.8rem] md:text-[1rem]"
           >
             Sign up
