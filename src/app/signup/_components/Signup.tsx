@@ -41,11 +41,11 @@ const Signup = () => {
   });
   const onSubmit = async (data: TsignupSchema) => {
     console.log("submited", data);
-    if (isSubmitSuccessful) {
+    
         reset();
         setTouch(false)
         setTouch1(false)
-    }
+    
   };
   return (
     <div>
