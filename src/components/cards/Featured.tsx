@@ -7,6 +7,7 @@ type Props = {
   title?: string;
   heading?: string;
   price?: number;
+  par?:string
 };
 const Featured = ({id, img, title, heading, price }: Props) => {
   return (
@@ -14,7 +15,7 @@ const Featured = ({id, img, title, heading, price }: Props) => {
       <Link href={`/shop/product/${id}`}>
         <div className="bg-white p-3 rounded-md shadow-xl">
           <div className="relative h-[15rem] md:h-[18rem] ">
-            <Image src={img} alt="p1" fill className="object-cover hover:scale-105" />
+            <Image src={img} alt="p1" fill className="object-cover hover:scale-105 transition-all duration-300" />
           </div>
           <div className="text-center">
             <h1 className="font-semibold text-[0.9rem] lg:text-[1rem]">{title}</h1>

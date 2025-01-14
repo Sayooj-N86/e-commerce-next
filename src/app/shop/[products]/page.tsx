@@ -51,21 +51,21 @@ const products = [
     img: img1,
     title: "Earbuds",
     heading: "",
-    price: 20.0,
+    price: 20,
   },
   {
     id: "7",
     img: img1,
     title: "Earbuds",
     heading: "",
-    price: 20.0,
+    price: 20,
   },
   {
     id: "8",
     img: img1,
     title: "Earbuds",
     heading: "",
-    price: 20.0,
+    price: 20,
   },
 ];
 
@@ -86,7 +86,7 @@ const page = async ({
         Mens Products
       </div>
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-8 md:p-14">
-        {catdyn.products.map((item: any, i: number) => (
+        {catdyn.products.map((item: any, i: any) => (
           <Featured
             key={i}
             id={item.id}
@@ -94,6 +94,7 @@ const page = async ({
             title={item.title}
             // heading={item.heading}
             price={item.price}
+           
           />
         ))}
       </div>
