@@ -3,7 +3,7 @@ import image1 from '@public/image/home.jpg'
 import image3 from '@public/image/men2.jpg'
 import image2 from '@public/image/women3.jpg'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import cn from '../utils/tailwind'
 
 
@@ -52,8 +52,14 @@ const Kerosal = () => {
 
         else
             setIndex(index + 1)
-
     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNext()
+            }, 2000);
+            return () => clearInterval(interval);
+            }, [index]);
+    
     return (
         <div className={cn('relative h-[12rem] md:h-[43rem] flex  items-center w-full',{'justify-center':index==1})}>
             <Image className='object-cover' src={gallery.at(index)!.image} alt="fb" fill />
