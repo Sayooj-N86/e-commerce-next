@@ -13,7 +13,7 @@ const Featured = ({id, img, title, heading, price }: Props) => {
   return (
     <div>
       <Link href={`/shop/product/${id}`}>
-        <div className="bg-white p-3 rounded-md shadow-xl">
+        <div className="bg-white p-3 rounded-md shadow-2xl">
           <div className="relative h-[15rem] md:h-[18rem] ">
             <Image src={img} alt="p1" fill className="object-cover hover:scale-105 transition-all duration-300" />
           </div>
