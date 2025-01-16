@@ -9,7 +9,7 @@ const checkout = z.object(
         name: z.string().regex(/^[A-Z]/, "*start with capital letter").min(2, "*minimun 2 letters required"),
         name1: z.string().regex(/^[A-Z]/, "*start with capital letter").min(2, "*minimun 2 letters required"),
         email: z.string().email("*Invalid email").endsWith("com"),
-        phone: z.string().regex(/(^[6-9]\d{9}$)/,"*10 numbers required").length(10, { message: "*Phone number is required" }),
+        phone: z.string().regex(/(^[6-9]\d{9}$)/,"*10 numbers required"),
         address: z.string().min(15, { message: "*Address is required" }),
         pincode: z.string().regex(/^\d{6}$/,"*pincode required"),
     }

@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import Sidebar from './Sidebar'
 import Link from 'next/link'
+import Sidebar from './Sidebar'
+import Headercart from './Headercart'
 
 const Header = () => {
     return (
@@ -14,11 +15,7 @@ const Header = () => {
                     <Link href='/contact'>Contact</Link>
                 </div>
                 <Link href='/login' className='text-[0.8rem] md:text-[1rem] lg:text-[1.2rem]'>Login</Link>
-                <div className='relative h-6 w-[0.8rem] md:h-11 md:w-5'>
-                    <Link href='/cart'><Image src="/svg/addcart.svg" alt="addcart" fill className='' /></Link>
-                    <div className='absolute bg-violet-600-500 rounded-full size-[0.6rem] md:size-4 lg:size-5 flex justify-center items-center left-[0.54rem] md:left-3 text-white'><p className='text-[0.3rem] md:text-[0.5rem] lg:text-[0.7rem]'>0</p>
-                    </div>
-                </div>
+                <Headercart />
             </div>
             <Sidebar/>
         </div>
