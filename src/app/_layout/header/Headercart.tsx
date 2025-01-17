@@ -8,7 +8,7 @@ import React from "react";
 const Headercart = () => {
   const { totalUniqueItems } = useCart();
   const client = useClient();
-  if (!client){
+  if (!client) {
     return;
   }
   return (
