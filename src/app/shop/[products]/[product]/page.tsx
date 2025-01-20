@@ -21,12 +21,12 @@ const page = async ({ params }: { params: Promise<{ product: string }> }) => {
         />
       </div>
       <div className=" flex flex-col justify-center items-center gap-4 lg:px-7 xl:px-10 py-10">
-        <div className="font-bold text-[1.5rem]">{prdct.title}</div>
+        <div className="font-bold text-center text-[1.5rem]">{prdct.title}</div>
         <div className="font-bold text-[2rem]">$ {prdct.price}</div>
         <div className="font-semibold text-[1.2rem]">{prdct.category}</div>
         <div className="font-semibold text-[1.2rem]">{prdct.rating}</div>
         <div>
-          <p className="xl:pr-16 text-black/55 ">{prdct.description}</p>
+          <p className="xl:pr-16 text-center text-black/55 ">{prdct.description}</p>
         </div>
         <Buynow productdy={prdct}/>
       </div>

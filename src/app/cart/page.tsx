@@ -13,14 +13,14 @@ const page = () => {
     return;
   }
   return (
-    <div className="pt-[6.9rem] py-10">
-      <div className="flex flex-col lg:grid lg:grid-cols-6 px-8 lg:px-5 xl:px-10 gap-5 lg:gap-3 xl:gap-5 pt-5">
+    <div className="pt-[6.9rem] py-10 min:h-[70vh]">
+      <div className="flex flex-col lg:grid lg:grid-cols-6 px-5 md:px-8 lg:px-5 xl:px-10 gap-5 lg:gap-3 xl:gap-5 pt-5">
         <div className="lg:col-span-4">
           <div className="w-full flex overflow-x-auto ">
-            <table className=" border-separate border-spacing-y-4 shrink-0 w-full">
+            <table className=" border-separate xl:border-spacing-y-4 shrink-0 w-full">
               <thead className="bg-slate-100 shrink-0 w-full">
-                <tr className="text-center font-semibold ">
-                  <td className="w-32"></td>
+                <tr className="text-center font-semibold w-full">
+                  <td className="px-12"></td>
                   <td className="py-4">Product</td>
                   <td>Price</td>
                   <td>Quantity</td>
@@ -31,7 +31,7 @@ const page = () => {
               <tbody className="">
                 {items.map((products, i) => (
                   <tr key={i} className="text-center shrink-0">
-                    <td className="relative w-32 h-16 md:h-36 ">
+                    <td className="relative  w-32 h-10 md:h-36">
                       <Image
                         src={products.thumbnail}
                         alt=""
@@ -68,14 +68,14 @@ const page = () => {
             </table>
           </div>
         </div>
-        <div className="lg:col-span-2 bg-gray-100 rounded-2xl p-5 md:px-10 h-[12rem] md:h-[17rem]">
+        <div className="lg:col-span-2 bg-gray-100 rounded-2xl p-5 md:px-10 h-fit">
           <div className="text-center text-[1rem] md:text-[1.8rem] font-bold pb-5 md:pb-8">
             Cart Total
           </div>
                 
          <div className="flex justify-between">
-            <div className="text-[0.8rem] md:text-[1rem] md:pb-3">Total</div>
-            <div className="text-[1.2rem] md:text-[1.8rem]">{Math.round(totalItemsAmount)}</div>
+            <div className="text-[1rem] md:text-[1.5rem] lg:text-[1.3rem] md:pb-3">Total</div>
+            <div className="text-[1rem] md:text-[1.5rem] lg:text-[1.3rem]">{Math.round(totalItemsAmount)}</div>
          </div>
           <div className="text-center pt-3 md:pt-0 lg:pt-3 xl:pt-0 md:pb-3">
             <Link href="/checkout">

@@ -21,8 +21,8 @@ const Billing = () => {
             <div className="flex flex-col pt-3 gap-4 items-end">
                 <div className="text-[1.2rem] md:text-[2rem]">CartTotal</div>
                 <div className="text-[0.8rem] md:text-[1rem]">{totalShippingAmount}</div>
-                <div className="text-[0.8rem] md:text-[1rem] pb-3">{totalItemsAmount}</div>
-                <div className="text-[0.8rem] md:text-[1rem] font-semibold">{cartTotal}</div>
+                <div className="text-[0.8rem] md:text-[1rem] pb-3">{Math.round(totalItemsAmount)}</div>
+                <div className="text-[0.8rem] md:text-[1rem] font-semibold">{Math.round(cartTotal)}</div>
             </div>
           </div>
     </div>

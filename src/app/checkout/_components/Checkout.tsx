@@ -88,7 +88,7 @@ const Checkout = () => {
                 <option>UAE</option>
               </select>
             </div>
-            <button className="text-center text-white font-semibold bg-violet-600 hover:bg-yellow-300 hover:text-black w-full rounded-2xl p-2">
+            <button className="text-center text-white font-semibold bg-violet-600 hover:bg-yellow-300 hover:text-black w-full rounded-3xl p-2">
               Complete Order
             </button>
           </form>

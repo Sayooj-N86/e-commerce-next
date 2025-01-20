@@ -3,7 +3,7 @@ import Navsvg from "@/components/svg/Navsvg";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Sidebar = () => {
+const  Sidebar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>

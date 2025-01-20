@@ -15,7 +15,7 @@ const Buynow = ({ productdy }: Props) => {
   const { addItem, items, addShipping } = useCart();
   console.log(":::", items);
   return (
-    <div>
+    <div> 
       <div>
         <button
           className="bg-blue-500 text-white rounded-2xl p-3"

@@ -13,7 +13,7 @@ const Headercart = () => {
   }
   return (
     <div>
-      <div className="relative h-6 w-[0.8rem] md:h-11 md:w-5">
+      <div className="relative h-6 w-[0.9rem] md:h-11 md:w-5">
         <Link href="/cart">
           <Image src="/svg/addcart.svg" alt="addcart" fill className="" />
         </Link>
