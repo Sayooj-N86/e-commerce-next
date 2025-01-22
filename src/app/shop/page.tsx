@@ -59,7 +59,7 @@ const page = async() => {
   return (
     <div className="pt-[6.1rem]">
         <div className='text-center font-bold text-[1rem]  md:text-[1.5rem] pt-3 pb-2'>Categories</div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-14 pt-3 pb-10 px-8 md:px-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-20  pt-3 pb-10 px-12 md:px-24'>
             {categoryDynamic.map((item : any,index :any) => <Category key={index} id={item.id} image={item.image} name={item} />)}
         </div>
     </div>
