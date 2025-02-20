@@ -22,7 +22,7 @@ const product = res.data
       <div className="relative h-[15rem] w-[100%] md:h-[25rem] md:w-[60%] lg:h-[25rem] lg:w-[90%] xl:h-[35rem]  xl:w-[70%] shadow-2xl">
         <Image
           src={storageUrl+ product.image}
-          alt="mobile"
+          alt="images"
           fill
           className="object-cover"
         />
@@ -35,7 +35,7 @@ const product = res.data
         <div>
           <p className="xl:pr-16 text-center text-black/55 ">{product.description}</p>
         </div>
-        <Buynow productdy={product}/>
+        <Buynow productdy={product} />
       </div>
     </div>
   );

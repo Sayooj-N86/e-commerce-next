@@ -4,11 +4,12 @@ import { useCart } from "@mrvautin/react-shoppingcart";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { storageUrl } from "../utils/Baseurl";
 
-const page = () => {
+const CartPage = () => {
   const { updateItemQuantity, items ,removeItem, totalItemsAmount } = useCart();
-  console.log(":::", items);
   const client = useClient();
+  console.log("items from cart Page:::", items);
   if (!client) {
     return;
   }
@@ -33,13 +34,13 @@ const page = () => {
                   <tr key={i} className="text-center shrink-0">
                     <td className="relative  w-32 h-10 md:h-36">
                       <Image
-                        src={products.thumbnail}
+                        src={storageUrl + products.image}
                         alt=""
                         fill
                         className="object-cover"
                       />
                     </td>
-                    <td>{products.title}</td>
+                    <td>{products.name}</td>
                     <td>{Math.round(products.price)}</td>
                     <td>
                       <button
@@ -90,4 +91,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CartPage;

@@ -32,7 +32,7 @@ const page = async ({
         {products?.map((item: {_id:string,name:string,price:number,description:string,image:string}, i: number) => (
           <Featured
             key={i}
-            id={item._id}
+            _id={item._id}
             img={storageUrl+ item.image}
             title={item.name}
             heading={item.description}

@@ -70,7 +70,7 @@ const Featureproducts = ({products}:props) => {
             <div className='text-center font-bold text-[1rem]  md:text-[1.5rem]'>FEATURED PRODUCTS</div>
             <div className='text-center font-semibold text-[0.8rem] md:text-[1.2rem] pt-3'>Product Deatails and Prices</div>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pt-3 pb-10 px-6 md:px-10'>
-                {products.map((item,index) => <Featured  key={index} img={storageUrl + item.image} title={item.name} heading={item.description} price={ item.price} />)}
+                {products.map((item,index) => <Featured  key={index} _id={item._id} img={storageUrl + item.image} title={item.name} heading={item.description} price={ item.price} />)}
             </div>
         </div>
     )

@@ -1,9 +1,13 @@
 "use client";
+import { frontendApi } from "@/api/api";
 import Closeeye from "@/components/svg/Closeeye";
 import Openeye from "@/components/svg/Openeye";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { z } from "zod";
 
 const signupSchema = z
@@ -21,31 +25,46 @@ const signupSchema = z
       )
       .min(8, "*Password required and atleast 8 characters")
       .max(10, "password contains only 10 character"),
-    password1: z.string(),
+    confirmpassword: z.string(),
   })
-  .refine((data) => data.password === data.password1, {
+  .refine((data) => data.password === data.confirmpassword, {
     message: "Passwords don't match",
     path: ["password1"],
   });
 type TsignupSchema = z.infer<typeof signupSchema>;
 const Signup = () => {
   const [touch, setTouch] = useState(false);
-  const [touch1, setTouch1] = useState(false);
+  // const [touch1, setTouch1] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting, },
   } = useForm<TsignupSchema>({
     resolver: zodResolver(signupSchema),
   });
+  const router = useRouter();
   const onSubmit = async (data: TsignupSchema) => {
+    try
+    {
+      const response = await frontendApi.signupApi(data);
+      console.log(response);
+      if(response.data.success){
+        toast.success("Sign Up successfully");
+        router.push("/login");
+        router.refresh();
+      }
+      }
+      catch(error)
+      {
+        console.log(error);
+        toast.error("try again");
+    }
     console.log("submited", data);
-    
-        reset();
-        setTouch(false)
-        setTouch1(false)
-    
+
+    reset();
+    setTouch(false);
+    // setTouch1(false);
   };
   return (
     <div>
@@ -106,10 +125,9 @@ const Signup = () => {
           <input
             className="border border-gray-300 md:border-gray-400 text-[0.7rem] md:text-[1rem] p-1 md:p-2 rounded-xl md:rounded-2xl w-full"
             type="password"
-            {...register("password1")}
-            placeholder="Confirm Cassword"
+            {...register("confirmpassword")}
+            placeholder="Confirm password"
           />
-          
         </div>
         <div className="pt-3 md:pt-4 w-full">
           <button

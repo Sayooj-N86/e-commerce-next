@@ -1,11 +1,15 @@
 "use client";
+import { frontendApi } from "@/api/api";
 import Closeeye from "@/components/svg/Closeeye";
 import Openeye from "@/components/svg/Openeye";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { z } from "zod";
+import Cookies from "js-cookie";
 
 
 const loginSchema = z.object({
@@ -23,8 +27,25 @@ const Form = () => {
   } = useForm<TloginSchema>({
     resolver: zodResolver(loginSchema),
   })
+  const router = useRouter();
   const onSubmit = async (data : TloginSchema) => {
-    console.log("submited",data)
+    try{
+      const response = await frontendApi.loginApi(data);
+      console.log(response);
+      if(response.data.success){
+        window.localStorage.setItem('accessToken',response.data.accessToken);
+        window.localStorage.setItem('userdata',JSON.stringify(response.data.userData));
+        Cookies.set('accessToken',response.data.accessToken);
+        toast.success("login successfully");
+        router.push("/");
+        router.refresh();
+      }
+    }
+    catch(error){
+      console.log(error);
+        toast.error("try again");
+    }
+    // console.log("submited",data)
     reset()
   };
   return (
@@ -77,7 +98,7 @@ const Form = () => {
         </div>
         <div className="flex flex-row items-center pt-4 gap-1">
           <h2 className="md:font-semibold text-[0.8rem] md:text-[1rem]">
-            Don't have an Account?
+            Dont have an Account?
           </h2>
           <Link
             href="/signup"

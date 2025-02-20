@@ -1,18 +1,18 @@
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 type Props = {
-  id?:string;
+  _id?:string;
   img: string;
   title?: string;
   heading?: string;
   price?: number;
   par?:string
 };
-const Featured = ({id, img, title, heading, price }: Props) => {
+const Featured = ({_id, img, title, heading, price }: Props) => {
   return (
     <div>
-      <Link href={`/shop/product/${id}`}>
+      <Link href={`/shop/product/${_id}`}>
         <div className="bg-white p-3 rounded-md shadow-2xl">
           <div className="relative h-[15rem] md:h-[18rem] ">
             <Image src={img} alt="p1" fill className="object-cover hover:scale-105 transition-all duration-300" />

@@ -1,5 +1,16 @@
 import axiosClient from "./config/AxiosConfig";
 
+type TsignupSchema = {
+    name: string;
+    email: string;
+    password: string;
+    confirmpassword: string;
+}
+type TloginSchema = {
+    email: string;
+    password: string;
+}
+
 export const frontendApi = {
 
       
@@ -16,5 +27,12 @@ export const frontendApi = {
         singleproductApi: async function (id:string) {
             return await axiosClient.get(`products/single/${id}`);
         },
+        signupApi: async function (data:TsignupSchema) {
+            return await axiosClient.post("auth/signup",data);
+        },
+        loginApi: async function (data:TloginSchema) {
+            return await axiosClient.post("auth/login",data);
+        },
+        
         
 }
