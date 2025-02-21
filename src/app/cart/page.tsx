@@ -2,17 +2,31 @@
 import useClient from "@/hook/useClient";
 import { useCart } from "@mrvautin/react-shoppingcart";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { storageUrl } from "../utils/Baseurl";
+import { useRouter } from "next/navigation";
+
 
 const CartPage = () => {
   const { updateItemQuantity, items ,removeItem, totalItemsAmount } = useCart();
   const client = useClient();
+  const router = useRouter();
   console.log("items from cart Page:::", items);
   if (!client) {
     return;
   }
+  const handleCheckout = ()  => {
+    const accesstoken =  window.localStorage.getItem('accessToken');
+  
+  if(accesstoken){
+    router.push('/checkout')
+  }
+  else{
+    window.localStorage.setItem('checkout','true')
+    router.push('/login')
+  }
+}
+  
   return (
     <div className="pt-[6.9rem] py-10 min:h-[70vh]">
       <div className="flex flex-col lg:grid lg:grid-cols-6 px-5 md:px-8 lg:px-5 xl:px-10 gap-5 lg:gap-3 xl:gap-5 pt-5">
@@ -79,11 +93,13 @@ const CartPage = () => {
             <div className="text-[1rem] md:text-[1.5rem] lg:text-[1.3rem]">{Math.round(totalItemsAmount)}</div>
          </div>
           <div className="text-center pt-3 md:pt-0 lg:pt-3 xl:pt-0 md:pb-3">
-            <Link href="/checkout">
-              <button className="text-[0.7rem] md:text-[1rem] border-2 px-3 py-2 md:px-8 md:py-3 lg:px-5 xl:px-8 lg:py-2  xl:py-4 rounded-xl">
+           
+              <button
+              onClick={handleCheckout}
+               className="text-[0.7rem] md:text-[1rem] border-2 px-3 py-2 md:px-8 md:py-3 lg:px-5 xl:px-8 lg:py-2  xl:py-4 rounded-xl">
                 Check out
               </button>
-            </Link>
+            
           </div>
         </div>
       </div>

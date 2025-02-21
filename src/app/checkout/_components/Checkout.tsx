@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -24,6 +24,7 @@ const Checkout = () => {
             resolver: zodResolver(checkout)
             }
     )
+    console.log(isSubmitting,isSubmitSuccessful)
     const onSubmit = async (data: tcheckout) =>{
         console.log("submit",data);
         reset();

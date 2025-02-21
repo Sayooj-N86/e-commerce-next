@@ -37,8 +37,15 @@ const Form = () => {
         window.localStorage.setItem('userdata',JSON.stringify(response.data.userData));
         Cookies.set('accessToken',response.data.accessToken);
         toast.success("login successfully");
+
+        const checkout = window.localStorage.getItem('checkout');
+        if(checkout){
+          window.localStorage.removeItem('checkout')
+          router.push('/checkout');
+          }else{
         router.push("/");
-        router.refresh();
+        }
+        // router.refresh();
       }
     }
     catch(error){

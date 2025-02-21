@@ -19,7 +19,7 @@ const Header = () => {
         window.localStorage.removeItem('accessToken');
         setAccessToken(null);
         router.push('/');
-        setTimeout(() => {
+        setTimeout(() => {  
             router.refresh();
         },100);
         }
