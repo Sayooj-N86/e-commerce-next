@@ -33,6 +33,15 @@ export const frontendApi = {
         loginApi: async function (data:TloginSchema) {
             return await axiosClient.post("auth/login",data);
         },
+        orderApi: async function (data:unknown){
+            const accessToken = window.localStorage.getItem('accessToken');
+            return await axiosClient.post("order/create",data,
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        },
+            });               
+        }
         
         
 }

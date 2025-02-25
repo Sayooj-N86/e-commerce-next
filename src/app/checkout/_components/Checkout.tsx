@@ -3,9 +3,16 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useCart } from "@mrvautin/react-shoppingcart";
+import { frontendApi } from "@/api/api";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 
 const Checkout = () => {
+  const {items} = useCart();
+  const router = useRouter();
+      console.log(items);
     const checkout = z.object(
         {
             name: z.string().regex(/^[A-Z]/, "*start with capital letter").min(2, "*minimun 2 letters required"),
@@ -26,7 +33,25 @@ const Checkout = () => {
     )
     console.log(isSubmitting,isSubmitSuccessful)
     const onSubmit = async (data: tcheckout) =>{
-        console.log("submit",data);
+      try{
+        const billingDetails = data;
+
+        const body = { billingDetails, items};
+
+
+        const response = await frontendApi.orderApi(body);
+        
+        // console.log("response:", response);
+        if (response.data.success) {
+          toast.success("order successfull");
+          router.push("/");
+          router.refresh();
+      }
+    }
+    catch(errors:any){
+      toast.error(errors.response.data);
+
+    }
         reset();
     }
   return (
