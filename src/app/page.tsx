@@ -15,7 +15,6 @@ const page = async () => {
   const categories = res.categories
   const featureproducts = res.featuredproduct
 
-  console.log("dataaaaaaa",res)
   return (
     <div className='pt-[6.1rem]'>
       

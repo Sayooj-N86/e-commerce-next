@@ -11,7 +11,6 @@ const CartPage = () => {
   const { updateItemQuantity, items ,removeItem, totalItemsAmount } = useCart();
   const client = useClient();
   const router = useRouter();
-  console.log("items from cart Page:::", items);
   if (!client) {
     return;
   }
