@@ -1,5 +1,5 @@
 "use client";
-import { frontendApi } from "@/api/api";
+// import { frontendApi } from "@/api/api";
 import Closeeye from "@/components/svg/Closeeye";
 import Openeye from "@/components/svg/Openeye";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,7 +9,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
+import { signIn } from "next-auth/react";
 
 
 const loginSchema = z.object({
@@ -29,31 +30,52 @@ const Form = () => {
   })
   const router = useRouter();
   const onSubmit = async (data : TloginSchema) => {
-    try{
-      const response = await frontendApi.loginApi(data);
-      console.log(response);
-      if(response.data.success){
-        window.localStorage.setItem('accessToken',response.data.accessToken);
-        window.localStorage.setItem('userdata',JSON.stringify(response.data.userData));
-        Cookies.set('accessToken',response.data.accessToken);
-        toast.success("login successfully");
+    // try{
+    //   const response = await frontendApi.loginApi(data);
+    //   console.log(response);
+    //   if(response.data.success){
+    //     window.localStorage.setItem('accessToken',response.data.accessToken);
+    //     window.localStorage.setItem('userdata',JSON.stringify(response.data.userData));
+    //     Cookies.set('accessToken',response.data.accessToken);
+    //     toast.success("login successfully");
 
-        const checkout = window.localStorage.getItem('checkout');
-        if(checkout){
-          window.localStorage.removeItem('checkout')
-          router.push('/checkout');
-          }else{
-        router.push("/");
-        }
-        // router.refresh();
-      }
+    //     const checkout = window.localStorage.getItem('checkout');
+    //     if(checkout){
+    //       window.localStorage.removeItem('checkout')
+    //       router.push('/checkout');
+    //       }else{
+    //     router.push("/");
+    //     }
+    //     // router.refresh();
+    //   }
+    // }
+    // catch(error){
+    //   console.log(error);
+    //     toast.error("try again");
+    // }
+    // // console.log("submited",data)
+    // reset()
+    try{
+      const signedIn = await signIn('credentials', {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+        });
+        if(signedIn){
+          toast.success('login successfully');
+          router.push("/");
+          router.refresh();
+          }
+          else{
+            toast.error('try again');
+            }
     }
     catch(error){
       console.log(error);
-        toast.error("try again");
-    }
-    // console.log("submited",data)
-    reset()
+      
+      }
+
+
   };
   return (
     <div>

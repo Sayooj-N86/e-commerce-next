@@ -1,12 +1,11 @@
 "use client";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { frontendApi } from "@/api/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCart } from "@mrvautin/react-shoppingcart";
-import { frontendApi } from "@/api/api";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { z } from "zod";
 
 const Checkout = () => {
   const { items } = useCart();
@@ -67,7 +66,7 @@ const Checkout = () => {
             <input
               className="border border-solid border-black p-1 rounded-xl"
               type="text"
-              {...register("name1", { required: true })}
+              {...register("name", { required: true })}
               placeholder="first name"
             />
             {errors.name && (
@@ -81,7 +80,7 @@ const Checkout = () => {
             <input
               className="border border-solid border-black p-1 rounded-xl"
               type="text"
-              {...register("name", { required: true })}
+              {...register("name1", { required: true })}
               placeholder="last name"
             />
             {errors.name1 && (

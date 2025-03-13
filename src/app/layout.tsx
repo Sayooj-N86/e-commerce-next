@@ -5,6 +5,8 @@ import Header from "./_layout/header/Header";
 import "./globals.css";
 import CartProviders from "./provider/CartProviders";
 import { Toaster } from "react-hot-toast";
+// import { SessionProvider } from "next-auth/react";
+import SessionProviderClinet from "./provider/sessionProviderClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,13 +33,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <SessionProviderClinet>
         <Toaster position="top-right" containerClassName="mt-4" />
 
-        <CartProviders>
-          <Header/>
-          {children}
-          <Footer/>
-        </CartProviders>
+          <CartProviders>
+            <Header/>
+            {children}
+            <Footer/>
+          </CartProviders>
+        </SessionProviderClinet>
       </body>
     </html>
   );

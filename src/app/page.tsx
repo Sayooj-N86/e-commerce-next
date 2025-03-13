@@ -3,6 +3,9 @@ import Kerosal from './_components/Kerosal'
 import Categories from './_components/Categories'
 import Featureproducts from './_components/Featureproducts'
 import { frontendApi } from '@/api/api'
+import { getServerSession } from 'next-auth'
+import { authOptions } from './api/auth/[...nextauth]/authOptions'
+
 
 const homepage = async () => {
  const response= await frontendApi.homepageApi()
@@ -10,7 +13,12 @@ const homepage = async () => {
 }
 
 const page = async () => {
-  const res = await homepage()
+  const res = await homepage();
+
+  const session = await getServerSession(authOptions);
+  console.log('session::::',session?.accessToken);
+
+
   const banners = res.banners
   const categories = res.categories
   const featureproducts = res.featuredproduct
